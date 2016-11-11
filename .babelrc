@@ -1,0 +1,13 @@
+{
+    presets: ["es2015"],
+    plugins: [
+        "transform-es3-property-literals",
+        "transform-es3-member-expression-literals",
+        ["transform-es2015-modules-commonjs", {"loose": true}]
+    ],
+    "env": {
+        "test": {
+            "plugins": ["istanbul"]
+        }
+    }
+}
