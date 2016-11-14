@@ -82,7 +82,7 @@
 </ul>
 </li>
 </ul>
-<h2>Example</h2><pre class="prettyprint source lang-js"><code>var runner = tui.component.anim({
+<h2>Example</h2><h3>anim()</h3><pre class="prettyprint source lang-js"><code>var runner = tui.component.animation.anim({
     from: [0, 100],
     to: [100, 200],
     duration: 3000,
@@ -103,7 +103,13 @@ runner.run();    // return null
 // Run animation (browser support Promise)
 runner.run().then(function() {
     console.log('animation done (promise)');
-});</code></pre><h2>Dependency</h2><ul>
+});</code></pre><h3>requestAnimFrame(), cancelAnimFrame()</h3><pre class="prettyprint source lang-js"><code>// requestAnimationFrame
+var timerId = tui.component.animation.requestAnimFrame(function() {
+    $('box').css(left, '100px');
+});
+
+// cancelAnimationFrame
+tui.component.animation.cancelAnimFrame(timerId);</code></pre><h2>Dependency</h2><ul>
 <li>tui-code-snippet ^1.2.2</li>
 </ul>
 <h2>Documentation</h2><ul>
