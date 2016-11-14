@@ -7,7 +7,7 @@
     "bundle": "webpack && NODE_ENV=production webpack -p",
     "test": "karma start",
     "doc": "jsdoc -c jsdoc.json",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server --devtool=#source-map"
   },
   "keywords": [
     "web",

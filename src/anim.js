@@ -131,13 +131,13 @@ export function anim({
     function runner(resolve, start) {
         return function tick() {
             const elapsed = (new Date()) - start;
-            const values = map(from, (val, idx) =>
-                easing(elapsed, val, diffs[idx], duration));
+            const progress = Math.min(1, elapsed / duration);
+            const values = map(from, (val, idx) => (diffs[idx] * easing(progress)) + val);
 
             frame.apply(null, values);
             timeoutId = requestAnimFrame(tick);
 
-            if (elapsed >= duration) {
+            if (progress >= 1) {
                 cancelAnimFrame(timeoutId);
                 resolve();
                 complete();
