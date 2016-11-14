@@ -30,14 +30,12 @@ Calculate delta value(s) for create animation effect easily.
 
 ## Test environment
 * PC
-	* IE8~11
+	* Internet Explorer 8 ~ 11
 	* Chrome
 	* Firefox
 * Mobile
-	* Galaxy Note I(Android 2.3), II(Android 4.1)
-	* Galaxy S III(Android 4.0), IV(Android 4.2.2)
-	* iPhone 5S(iOS 8)
-	* Chrome Emulator
+	* Samsung Galaxy S5(aos 4.4), Samsung Galaxy Note 3(aos 4.4)
+	* iPhone 7(ios 10), iPhone 6s(ios 9.3)
 
 ## Download/Install
 * Bower:
