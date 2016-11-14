@@ -1,9 +1,13 @@
 /**
  * @fileoverview Module for animations
  * @author NHN Ent. FE Development team <dl_javascript@nhnent.com>
+ */
+
+/**
  * @module ./anim
  * @description Core module for animation
  */
+
 import util from 'code-snippet';
 
 import * as easingFunctions from './easing';
