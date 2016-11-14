@@ -12,7 +12,10 @@ module.exports = function(config) {
             'karma-webpack',
             'karma-sourcemap-loader',
             'karma-chrome-launcher',
-            'karma-webdriver-launcher'
+            'karma-webdriver-launcher',
+            'karma-junit-reporter',
+            'karma-spec-reporter',
+            'karma-coverage'
         ],
         basePath: '',
         frameworks: [
@@ -44,7 +47,21 @@ module.exports = function(config) {
         webpackMiddleware: {
           noInfo: true
         },
-        reporters: ['progress'],
+        reporters: [
+            'spec',
+            'junit',
+            'coverage'
+        ],
+        specReporter: {
+            suppressSkipped: true,
+            suppressPassed: true
+        },
+        coverageReporter: {
+            type: 'cobertura'
+        },
+        junitReporter: {
+            outputDir: 'junit'
+        },
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
