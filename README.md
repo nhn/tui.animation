@@ -1,11 +1,12 @@
 Animation
 ===============
-Calculate delta value(s) for create animation effect easily.
+Calculate delta value(s) for create animation easily.
 
 ## Feature
 
-* Increase, Decrease the specific value base on some options and easing algorithm.
-* (Optional) Support `Promise`.
+* Increase, Decrease the specific value base on options.
+* Support shim of `requestAnimationFrame`, `cancelAnimationFrame`.
+* (Optional) Support `Promise` for handle end of animation.
 * Support following timing-functions.
 	* linear
 	* easeInQuad (alias: easeIn)
@@ -20,6 +21,33 @@ Calculate delta value(s) for create animation effect easily.
     * easeInQuint
     * easeOutQuint
     * easeInOutQuint
+
+## Example
+
+```js
+var runner = tui.component.anim({
+    from: [0, 100],
+    to: [100, 200],
+    duration: 3000,
+    frame: function(left, top) {
+        $('box').css({
+            left: left + 'px',
+            top: top + 'px'
+        });
+    },
+    complete: function() {
+        console.log('animation done (callback)');
+    }
+});
+
+// Run animation (browser not support Promise)
+runner.run();    // return null
+
+// Run animation (browser support Promise)
+runner.run().then(function() {
+    console.log('animation done (promise)');
+});
+```
 
 ## Dependency
 * tui-code-snippet ^1.2.2
