@@ -34,8 +34,10 @@ Calculate delta value(s) for create animation effect easily.
 	* Chrome
 	* Firefox
 * Mobile
-	* Samsung Galaxy S5(aos 4.4), Samsung Galaxy Note 3(aos 4.4)
-	* iPhone 7(ios 10), iPhone 6s(ios 9.3)
+	* Samsung Galaxy S5(aos 4.4)
+    * Samsung Galaxy Note 3(aos 4.4)
+	* iPhone 7(ios 10)
+    * iPhone 6s(ios 9.3)
 
 ## Download/Install
 * Bower:
