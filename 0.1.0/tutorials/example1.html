@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Basic Usage</title>
+</head>
+<body>
+<div class="code-html">
+<style type="text/css">
+    .context {width: 260px;}
+    .inlineblock {display:inline-block;vertical-align:middle}
+    .move-box-container {width:198px;height:18px;border:1px solid #ccc;position:relative}
+    .move-box {width:1px;height:18px;background-color:red;position:absolute}
+    .move-btn-container {width:50px}
+    .move-btn {height:20px}
+</style>
+<!-- easeInOutQuad -->
+<div id="easeInOut" class="context">
+    <h3>easeInOut</h3>
+    <div class="move-box-container inlineblock">
+        <div class="move-box"></div>
+    </div>
+    <div class="move-btn-container inlineblock">
+        <button class="move-btn" type="button">run</button>
+    </div>
+</div>
+
+<!-- easeInOutCubic -->
+<div id="easeInOutCubic" class="context">
+    <h3>easeInOutCubic</h3>
+    <div class="move-box-container inlineblock">
+        <div class="move-box"></div>
+    </div>
+    <div class="move-btn-container inlineblock">
+        <button class="move-btn" type="button">run</button>
+    </div>
+</div>
+
+<!-- easeInOutQuart -->
+<div id="easeInOutQuart" class="context">
+    <h3>easeInOutQuart</h3>
+    <div class="move-box-container inlineblock">
+        <div class="move-box"></div>
+    </div>
+    <div class="move-btn-container inlineblock">
+        <button class="move-btn" type="button">run</button>
+    </div>
+</div>
+
+<!-- easeInOutQuint -->
+<div id="easeInOutQuint" class="context">
+    <h3>easeInOutQuint</h3>
+    <div class="move-box-container inlineblock">
+        <div class="move-box"></div>
+    </div>
+    <div class="move-btn-container inlineblock">
+        <button class="move-btn" type="button">run</button>
+    </div>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/nhnent/tui.code-snippet/1.2.2/code-snippet.min.js"></script>
+<script src="../dist/tui-component-animation.js"></script>
+<script class="code-js">
+$('div.context').each(function(_, container) {
+    container = $(container);
+
+    var easing = container.attr('id');
+    var box = container.find('.move-box');
+
+    container.find('.move-btn').on('click', function() {
+        tui.component.animation.anim({
+            easing: easing,
+            frame: function(left) {
+                box.css({left: left + '%'});
+            }
+        }).run();
+    });
+});
+</script>
+</body>
+</html>
