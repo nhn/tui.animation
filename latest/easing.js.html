@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Source: easing.js</title>
+    <title>Animation</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -18,11 +18,11 @@
 </head>
 <body>
 <nav class="lnb" id="lnb">
-    <div class="logo" style="">
-        <img src="img/toast-ui.png" width="100%" height="100%">
+    <div class="logo" style="width: 150px">
+        <img src="https://cloud.githubusercontent.com/assets/12269563/20029815/01133928-a39a-11e6-80f3-12500a91c755.png" width="100%" height="100%">
     </div>
     <div class="title">
-        <h1><a href="index.html" class="link">Source: easing.js</a></h1>
+        <h1><a href="index.html" class="link">Animation</a></h1>
         
     </div>
     <div class="search-container" id="search-container">
@@ -39,7 +39,7 @@
             </li>
         </ol>
     
-    <div class="lnb-examples hidden"><h3>Examples</h3><ul><li><a href="tutorial-example1.html">Basic Usage</a><div class="hidden" id="example1_sub"></div></li><li><a href="tutorial-example2.html">2-Direction Movement</a><div class="hidden" id="example2_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Modules</h3><ul><li><a href="module-._anim.html">./anim</a><div class="hidden" id="module:./anim_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="module-._anim.html#~getPrefixed">getPrefixed</a></li><li><a href="module-._anim.html#~noop">noop</a></li></ul></div></li><li><a href="module-._easing.html">./easing</a><div class="hidden" id="module:./easing_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="module-._easing.html#.easeIn">easeIn</a></li><li><a href="module-._easing.html#.easeInCubic">easeInCubic</a></li><li><a href="module-._easing.html#.easeInOut">easeInOut</a></li><li><a href="module-._easing.html#.easeInOutCubic">easeInOutCubic</a></li><li><a href="module-._easing.html#.easeInOutQuad">easeInOutQuad</a></li><li><a href="module-._easing.html#.easeInOutQuart">easeInOutQuart</a></li><li><a href="module-._easing.html#.easeInOutQuint">easeInOutQuint</a></li><li><a href="module-._easing.html#.easeInQuad">easeInQuad</a></li><li><a href="module-._easing.html#.easeInQuart">easeInQuart</a></li><li><a href="module-._easing.html#.easeInQuint">easeInQuint</a></li><li><a href="module-._easing.html#.easeOut">easeOut</a></li><li><a href="module-._easing.html#.easeOutCubic">easeOutCubic</a></li><li><a href="module-._easing.html#.easeOutQuad">easeOutQuad</a></li><li><a href="module-._easing.html#.easeOutQuart">easeOutQuart</a></li><li><a href="module-._easing.html#.easeOutQuint">easeOutQuint</a></li><li><a href="module-._easing.html#.linear">linear</a></li><li><a href="module-._easing.html#~_easeIn">_easeIn</a></li><li><a href="module-._easing.html#~_easeInOut">_easeInOut</a></li><li><a href="module-._easing.html#~_easeOut">_easeOut</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Namespaces</h3><ul><li><a href="tui.component.animation.html">tui.component.animation</a><div class="hidden" id="tui.component.animation_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="tui.component.animation.html#.anim">anim</a></li><li><a href="tui.component.animation.html#.cancelAnimFrame">cancelAnimFrame</a></li><li><a href="tui.component.animation.html#.requestAnimFrame">requestAnimFrame</a></li></ul></div></li></ul></div>
+    <div class="lnb-examples hidden"><h3>Examples</h3><ul><li><a href="tutorial-example1.html">Basic Usage</a><div class="hidden" id="example1_sub"></div></li><li><a href="tutorial-example2.html">2-Direction Movement</a><div class="hidden" id="example2_sub"></div></li><li><a href="tutorial-example3.html">Using Promise</a><div class="hidden" id="example3_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Modules</h3><ul><li><a href="module-._anim.html">./anim</a><div class="hidden" id="module:./anim_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="module-._anim.html#~getPrefixed">getPrefixed</a></li><li><a href="module-._anim.html#~noop">noop</a></li></ul></div></li><li><a href="module-._easing.html">./easing</a><div class="hidden" id="module:./easing_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="module-._easing.html#.easeIn">easeIn</a></li><li><a href="module-._easing.html#.easeInCubic">easeInCubic</a></li><li><a href="module-._easing.html#.easeInOut">easeInOut</a></li><li><a href="module-._easing.html#.easeInOutCubic">easeInOutCubic</a></li><li><a href="module-._easing.html#.easeInOutQuad">easeInOutQuad</a></li><li><a href="module-._easing.html#.easeInOutQuart">easeInOutQuart</a></li><li><a href="module-._easing.html#.easeInOutQuint">easeInOutQuint</a></li><li><a href="module-._easing.html#.easeInQuad">easeInQuad</a></li><li><a href="module-._easing.html#.easeInQuart">easeInQuart</a></li><li><a href="module-._easing.html#.easeInQuint">easeInQuint</a></li><li><a href="module-._easing.html#.easeOut">easeOut</a></li><li><a href="module-._easing.html#.easeOutCubic">easeOutCubic</a></li><li><a href="module-._easing.html#.easeOutQuad">easeOutQuad</a></li><li><a href="module-._easing.html#.easeOutQuart">easeOutQuart</a></li><li><a href="module-._easing.html#.easeOutQuint">easeOutQuint</a></li><li><a href="module-._easing.html#.linear">linear</a></li><li><a href="module-._easing.html#~_easeIn">_easeIn</a></li><li><a href="module-._easing.html#~_easeInOut">_easeInOut</a></li><li><a href="module-._easing.html#~_easeOut">_easeOut</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Namespaces</h3><ul><li><a href="tui.component.animation.html">tui.component.animation</a><div class="hidden" id="tui.component.animation_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="tui.component.animation.html#.anim">anim</a></li><li><a href="tui.component.animation.html#.cancelAnimFrame">cancelAnimFrame</a></li><li><a href="tui.component.animation.html#.requestAnimFrame">requestAnimFrame</a></li></ul></div></li></ul></div>
 </nav>
 <div id="resizer"></div>
 
@@ -224,7 +224,7 @@ export const easeInOutQuint = _easeInOut(5);
 </div>
 
 <footer>
-    <img class="logo" src="img/toast-ui.png" style="">
+    <img class="logo" src="https://cloud.githubusercontent.com/assets/12269563/20029815/01133928-a39a-11e6-80f3-12500a91c755.png" style="width: 150px">
     <div class="footer-text">NHN Entertainment. Frontend Development Lab</div>
 </footer>
 <script>prettyPrint();</script>
