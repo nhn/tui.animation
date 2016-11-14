@@ -47,41 +47,56 @@
 
 	'use strict';
 
-	var _anim = __webpack_require__(1);
+	var _codeSnippet = __webpack_require__(1);
 
-	var anim = _interopRequireWildcard(_anim);
+	var _codeSnippet2 = _interopRequireDefault(_codeSnippet);
+
+	var _anim = __webpack_require__(2);
+
+	var animation = _interopRequireWildcard(_anim);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
-	/** @namespace tui.component.animation */
-	tui.util.defineNamespace('tui.component.animation', anim);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	/**
+	 * @namespace tui.component.animation
+	 * @description Animation library
+	 */
+	_codeSnippet2['default'].defineNamespace('tui.component.animation', animation);
 
 /***/ },
 /* 1 */
 /***/ function(module, exports) {
+
+	module.exports = tui.util;
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 	exports.requestAnimFrame = requestAnimFrame;
 	exports.cancelAnimFrame = cancelAnimFrame;
-	exports.animate = animate;
-	/**
-	 * @fileoverview Module for animations
-	 * @author NHN Ent. FE Development team <dl_javascript@nhnent.com>
-	 */
+	exports.anim = anim;
 
-	/** @module anim */
+	var _codeSnippet = __webpack_require__(1);
+
+	var _codeSnippet2 = _interopRequireDefault(_codeSnippet);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var isArray = _codeSnippet2['default'].isArray,
+	    map = _codeSnippet2['default'].map; /**
+	                                         * @fileoverview Module for animations
+	                                         * @author NHN Ent. FE Development team <dl_javascript@nhnent.com>
+	                                         * @module ./anim
+	                                         * @description Core module for animation
+	                                         */
 
 	var isSupportPromise = typeof Promise !== "undefined" && /\[native code\]/.test(Promise.toString());
-
-	/**
-	 * Determine object is Array
-	 * @param {*} obj - object to determining
-	 */
-	function isArray(obj) {
-	    return obj.length === +obj.length;
-	}
 
 	/**
 	 * Do nothing
@@ -253,25 +268,50 @@
 
 	/* eslint-enable */
 
+	function getRunner() {
+	    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+	        from = _ref.from,
+	        to = _ref.to,
+	        duration = _ref.duration,
+	        easing = _ref.easing,
+	        frame = _ref.frame,
+	        complete = _ref.complete,
+	        _ref$resolve = _ref.resolve,
+	        resolve = _ref$resolve === undefined ? noop : _ref$resolve;
+
+	    from = isArray(from) ? from : [from];
+	    to = isArray(to) ? to : [to];
+
+	    var diffs = map(from, function (val, idx) {
+	        return to[idx] - val;
+	    });
+	    var timeout = 0;
+
+	    easing = easingFunctions[easing] || easingFunctions.linear;
+	}
+
 	/**
 	 * Get animation runner
 	 * @memberof tui.component.animation
-	 * @method animate
+	 * @method anim
 	 * @param {Object} options - options
 	 * @param {(Number|Number[])} [options.from=0] - beginning values
 	 * @param {(Number|Number[])} [options.to=100] - change in values
 	 * @param {Number} [options.duration=1000] - duration (ms)
 	 * @param {String} [options.easing='linear'] - easing functions {@see easing}
-	 * @param {Function} [options.frame] - invoking each frames
+	 * @param {Function} [options.frame] - invoking each frames. you can manipulate specific element by this function
+	 *   the arguments passed with same sequence with `from`, `to` option values
 	 * @param {Function} [options.done] - invoked once at end of animation
 	 * @returns {Object} animation runner
+	 * @tutorial example1
 	 * @example
 	 * // Initialize animation runner
 	 * var runner = tui.component.animation.anim({
-	 *   from: [1, 5],
+	 *   from: [1, 5],  // initial x, y position
 	 *   to: [100, 500],
 	 *   duration: 2000,
 	 *   easing: 'easeInOut',
+	 *   // manipulate x, y position
 	 *   frame: function(x, y) {
 	 *     dom.css(box, {
 	 *       left: x + 'px',
@@ -289,32 +329,54 @@
 	 * runner.run();
 	 *
 	 * // If browser support Promise `run()` return it, otherwise return `null`
+	 * // So below line is throw an errors. use carefully
 	 * runner.run().then(function() {console.log('done!');});
 	 */
-	function animate() {
-	    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-	        _ref$from = _ref.from,
-	        from = _ref$from === undefined ? 0 : _ref$from,
-	        _ref$to = _ref.to,
-	        to = _ref$to === undefined ? 100 : _ref$to,
-	        _ref$duration = _ref.duration,
-	        duration = _ref$duration === undefined ? 1000 : _ref$duration,
-	        _ref$easing = _ref.easing,
-	        easing = _ref$easing === undefined ? 'linear' : _ref$easing,
-	        _ref$frame = _ref.frame,
-	        frame = _ref$frame === undefined ? noop : _ref$frame,
-	        _ref$done = _ref.done,
-	        done = _ref$done === undefined ? noop : _ref$done;
+	function anim() {
+	    var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+	        _ref2$from = _ref2.from,
+	        from = _ref2$from === undefined ? 0 : _ref2$from,
+	        _ref2$to = _ref2.to,
+	        to = _ref2$to === undefined ? 100 : _ref2$to,
+	        _ref2$duration = _ref2.duration,
+	        duration = _ref2$duration === undefined ? 1000 : _ref2$duration,
+	        _ref2$easing = _ref2.easing,
+	        easing = _ref2$easing === undefined ? 'linear' : _ref2$easing,
+	        _ref2$frame = _ref2.frame,
+	        frame = _ref2$frame === undefined ? noop : _ref2$frame,
+	        _ref2$complete = _ref2.complete,
+	        complete = _ref2$complete === undefined ? noop : _ref2$complete;
 
 	    from = isArray(from) ? from : [from];
 	    to = isArray(to) ? to : [to];
 
-	    var diffs = from.map(function (val, idx) {
+	    var diffs = map(from, function (val, idx) {
 	        return to[idx] - val;
 	    });
 	    var timeout = 0;
 
 	    easing = easingFunctions[easing] || easingFunctions.linear;
+
+	    var runner = {
+	        run: function run() {
+	            var start = new Date();
+
+	            if (!isSupportPromise) {
+	                runnerFn(noop, start)();
+	                return null;
+	            }
+
+	            return new Promise(function (resolve) {
+	                runnerFn(resolve, start)();
+	            });
+	        },
+	        cancel: function cancel() {
+	            runner.done = true;
+	            cancelAnimFrame(timeout);
+	        },
+
+	        done: false
+	    };
 
 	    /**
 	     * Get animation runner object
@@ -322,47 +384,29 @@
 	     * @param {Date} start - time of animation start
 	     * @returns {function}
 	     */
-	    function runner(resolve, start) {
+	    function runnerFn(resolve, start) {
 	        return function tick() {
 	            var elapsed = new Date() - start;
-	            var p = elapsed / duration;
-
-	            p = Math.min(p, 1);
-
-	            var values = from.map(function (val, idx) {
+	            var p = Math.min(elapsed / duration, 1);
+	            var values = map(from, function (val, idx) {
 	                return val + diffs[idx] * easing(p);
 	            });
-	            if (values.length < 2) {
-	                values = values[0];
-	            }
 
-	            frame(values);
+	            frame.apply(null, values);
 	            timeout = requestAnimFrame(tick);
 
 	            if (p >= 1) {
+	                runner.done = true;
 	                cancelAnimFrame(timeout);
 	                resolve();
-	                done();
+	                complete();
 
 	                return;
 	            }
 	        };
 	    }
 
-	    return {
-	        run: function run() {
-	            if (isSupportPromise) {
-	                return new Promise(function (resolve) {
-	                    runner(resolve, new Date())();
-	                });
-	            }
-
-	            return null;
-	        },
-	        cancel: function cancel() {
-	            cancelAnimFrame(timeout);
-	        }
-	    };
+	    return runner;
 	}
 
 /***/ }

@@ -21,6 +21,9 @@ Calculate delta value(s) for create animation effect easily.
     * easeOutQuint
     * easeInOutQuint
 
+## Dependency
+* tui-code-snippet ^1.2.2
+
 ## Documentation
 * **API** : https://nhnent.github.io/tui.component.animation/latest
 * **Tutorial** : https://github.com/nhnent/tui.component.animation/wiki/Effects-Component-Tutorial

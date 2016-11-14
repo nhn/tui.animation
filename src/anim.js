@@ -4,21 +4,16 @@
  * @module ./anim
  * @description Core module for animation
  */
-const isSupportPromise =
-    (typeof Promise !== "undefined") &&
+import util from 'code-snippet';
+
+import * as easingFunctions from './easing';
+
+const {isArray, map} = util;
+
+const isSupportPromise = (typeof Promise !== "undefined") &&
     (/\[native code\]/.test(Promise.toString()));
 
-/**
- * Determine object is Array
- * @param {*} obj - object to determining
- */
-function isArray(obj) {
-    return obj.length === +obj.length;
-}
-
-/**
- * Do nothing
- */
+/** Do nothing */
 function noop() {}
 
 /**
@@ -70,131 +65,6 @@ export function cancelAnimFrame(timerId) {
     cancelFn(timerId);
 }
 
-/* eslint-disable */
-// easing algorithm are based on https://gist.github.com/gre/1650294
-
-/**
- * no easing, no acceleration
- */
-function linear(t) {
-    return t;
-}
-
-/**
- * accelerating from zero velocity
- */
-function easeInQuad(t) {
-    return t * t;
-}
-
-/**
- * decelerating to zero velocity
- */
-function easeOutQuad(t) {
-    return t * (2 - t);
-}
-
-/**
- * acceleration until halfway, then deceleration
- */
-function easeInOutQuad(t) {
-    return (t < 0.5) ? (2 * t * t) :
-        (-1 + (4 - 2 * t) * t);
-}
-
-/**
- * accelerating from zero velocity
- */
-function easeInCubic(t) {
-    return t * t * t;
-}
-
-/**
- * decelerating to zero velocity
- */
-function easeOutCubic(t) {
-    t -= 1;
-
-    return (t * t * t) + 1;
-}
-
-/**
- * acceleration until halfway, then deceleration
- */
-function easeInOutCubic(t) {
-    return (t < 0.5) ? (4 * t * t * t) :
-        (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-}
-
-/**
- * accelerating from zero velocity
- */
-function easeInQuart(t) {
-    return t * t * t * t;
-}
-
-/**
- * decelerating to zero velocity
- */
-function easeOutQuart(t) {
-    t -= 1;
-
-    return 1 - (t * t * t * t);
-}
-
-/**
- * acceleration until halfway, then deceleration
- */
-function easeInOutQuart(t) {
-    const t1 = t - 1;
-
-    return (t < 0.5) ? (8 * t * t * t * t) :
-        (1 - (8 * t1 * t1 * t1 * t1));
-}
-
-// accelerating from zero velocity
-function easeInQuint(t) {
-    return (t * t * t * t * t);
-}
-
-// decelerating to zero velocity
-function easeOutQuint(t) {
-    t -= 1;
-
-    return 1 + (t * t * t * t * t);
-}
-
-/**
- * acceleration until halfway, then deceleration
- */
-function easeInOutQuint(t) {
-    const t1 = t - 1;
-
-    return (t < 0.5) ? (16 * t * t * t * t * t) :
-        (1 + (16 * t1 * t1 * t1 * t1 * t1));
-}
-
-const easingFunctions = {
-    linear,
-    easeIn: easeInQuad,
-    easeOut: easeOutQuad,
-    easeInOut: easeInOutQuad,
-    easeInQuad,
-    easeOutQuad,
-    easeInOutQuad,
-    easeInCubic,
-    easeOutCubic,
-    easeInOutCubic,
-    easeInQuart,
-    easeOutQuart,
-    easeInOutQuart,
-    easeInQuint,
-    easeOutQuint,
-    easeInOutQuint
-};
-
-/* eslint-enable */
-
 /**
  * Get animation runner
  * @memberof tui.component.animation
@@ -243,14 +113,13 @@ export function anim({
     duration = 1000,
     easing = 'linear',
     frame = noop,
-    done = noop
+    complete = noop
 } = {}) {
     from = isArray(from) ? from : [from];
     to = isArray(to) ? to : [to];
 
-    const diffs = from.map((val, idx) => to[idx] - val);
-    let timeout = 0;
-
+    let timeoutId = 0;
+    const diffs = map(from, (val, idx) => to[idx] - val);
     easing = easingFunctions[easing] || easingFunctions.linear;
 
     /**
@@ -262,22 +131,16 @@ export function anim({
     function runner(resolve, start) {
         return function tick() {
             const elapsed = (new Date()) - start;
-            let p = elapsed / duration;
+            const values = map(from, (val, idx) =>
+                easing(elapsed, val, diffs[idx], duration));
 
-            p = Math.min(p, 1);
+            frame.apply(null, values);
+            timeoutId = requestAnimFrame(tick);
 
-            let values = from.map((val, idx) => val + (diffs[idx] * easing(p)));
-            if (values.length < 2) {
-                values = values[0];
-            }
-
-            frame(values);
-            timeout = requestAnimFrame(tick);
-
-            if (p >= 1) {
-                cancelAnimFrame(timeout);
+            if (elapsed >= duration) {
+                cancelAnimFrame(timeoutId);
                 resolve();
-                done();
+                complete();
 
                 return;
             }
@@ -286,16 +149,17 @@ export function anim({
 
     return {
         run() {
-            if (isSupportPromise) {
-                return new Promise(resolve => {
-                    runner(resolve, new Date())();
-                });
+            const start = new Date();
+
+            if (!isSupportPromise) {
+                runner(noop, start)();
+                return null;
             }
 
-            return null;
+            return new Promise(resolve => runner(resolve, start)());
         },
         cancel() {
-            cancelAnimFrame(timeout);
+            cancelAnimFrame(timeoutId);
         }
     };
 }

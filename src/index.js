@@ -1,6 +1,7 @@
-import * as anim from './anim';
 /**
  * @namespace tui.component.animation
  * @description Animation library
  */
-tui.util.defineNamespace('tui.component.animation', anim);
+import util from 'code-snippet';
+import * as animation from './anim';
+util.defineNamespace('tui.component.animation', animation);

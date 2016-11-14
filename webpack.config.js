@@ -6,7 +6,8 @@ const config = {
     entry: './src/index.js',
     output: {
         path: `${__dirname}/dist`,
-        filename: `${pkg.name}.js`
+        filename: `${pkg.name}.js`,
+        publicPath: '/'
     },
     module: {
         noParse: /bower_components\/.*\/*.js/,
