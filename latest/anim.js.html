@@ -133,7 +133,7 @@ export function cancelAnimFrame(timerId) {
  * @param {String} [options.easing='linear'] - easing functions {@see easing}
  * @param {Function} [options.frame] - invoking each frames. you can manipulate specific element by this function
  *   the arguments passed with same sequence with `from`, `to` option values
- * @param {Function} [options.done] - invoked once at end of animation
+ * @param {Function} [options.complete] - invoked once at end of animation
  * @returns {Object} animation runner
  * @tutorial example1
  * @tutorial example2
@@ -152,7 +152,7 @@ export function cancelAnimFrame(timerId) {
  *       top: y + 'px'
  *     });
  *   },
- *   done: function() {
+ *   complete: function() {
  *     dom.css(box, {
  *       backgroundColor: 'red'
  *     });
