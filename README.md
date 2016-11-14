@@ -26,8 +26,7 @@ Calculate delta value(s) for create animation effect easily.
 
 ## Documentation
 * **API** : https://nhnent.github.io/tui.component.animation/latest
-* **Tutorial** : https://github.com/nhnent/tui.component.animation/wiki/Effects-Component-Tutorial
-* **Sample** - https://nhnent.github.io/tui.component.animation/latest/tutorial-sample1.html
+* **Examples** - https://nhnent.github.io/tui.component.animation/latest/tutorial-example1.html
 
 ## Test environment
 * PC
