@@ -7,7 +7,8 @@
     "bundle": "webpack && NODE_ENV=production webpack -p",
     "test": "karma start",
     "doc": "jsdoc -c jsdoc.json && mkdir -p doc/dist && cp -f dist/tui-component-animation.js doc/dist",
-    "dev": "webpack-dev-server --devtool=#source-map"
+    "dev": "webpack-dev-server --devtool=#source-map",
+    "dev:test": "karma start --no-single-run --auto-watch"
   },
   "keywords": [
     "web",
@@ -24,7 +25,15 @@
     "babel-plugin-transform-es3-member-expression-literals": "^6.8.0",
     "babel-plugin-transform-es3-property-literals": "^6.8.0",
     "babel-preset-es2015": "^6.18.0",
+    "jasmine-core": "^2.5.2",
     "jsdoc": "^3.4.3",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-fixture": "^0.2.6",
+    "karma-jasmine": "^1.0.2",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webdriver-launcher": "github:everedifice/karma-webdriver-launcher",
+    "karma-webpack": "^1.8.0",
     "tui-jsdoc-template": "^1.0.4",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"

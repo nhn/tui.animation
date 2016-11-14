@@ -131,7 +131,7 @@ export function anim({
     function runner(resolve, start) {
         return function tick() {
             const elapsed = (new Date()) - start;
-            const progress = Math.min(1, elapsed / duration);
+            const progress = Math.min(1, (elapsed / duration) || 0);
             const values = map(from, (val, idx) => (diffs[idx] * easing(progress)) + val);
 
             frame.apply(null, values);
