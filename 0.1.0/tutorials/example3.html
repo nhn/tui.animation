@@ -15,9 +15,9 @@
     .move-btn {height:20px}
 </style>
 <p>
-    You can use `Promise` to handle end of animation.
+    You can use `Promise` to handling end of animation.
     
-    This `Promise` feature is checked on native and shim of core-js.
+    This `Promise` feature is tested on native and <a href="https://github.com/zloirock/core-js">core-js</a>
 </p>
 <div id="easeInOut" class="context">
     <div class="move-box-container inlineblock">
@@ -33,8 +33,7 @@
 <script src="https://cdn.rawgit.com/nhnent/tui.code-snippet/1.2.2/code-snippet.min.js"></script>
 <script src="../dist/tui-component-animation.js"></script>
 <script class="code-js">
-const isSupportPromise = (typeof Promise !== "undefined") &&
-    (/\[native code\]/.test(Promise.toString()));
+const isSupportPromise = (typeof Promise !== "undefined") && (/\[native code\]/.test(Promise.toString()));
 
 if (!isSupportPromise) {
     $('#easeInOut').html('<h2 style="color:red">Browser not support `Promise`.</h2>');

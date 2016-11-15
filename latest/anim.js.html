@@ -148,13 +148,13 @@ export function cancelAnimFrame(timerId) {
  *   easing: 'easeInOut',
  *   // manipulate x, y position
  *   frame: function(x, y) {
- *     dom.css(box, {
+ *     $box.css({
  *       left: x + 'px',
  *       top: y + 'px'
  *     });
  *   },
  *   complete: function() {
- *     dom.css(box, {
+ *     $box.css({
  *       backgroundColor: 'red'
  *     });
  *   }
@@ -163,8 +163,8 @@ export function cancelAnimFrame(timerId) {
  * // Run animation
  * runner.run();
  *
- * // If browser support Promise `run()` return it, otherwise return `null`
- * // So below line is throw an errors. use carefully
+ * // If browser support Promise then method `run()` is return it, otherwise it return `null`
+ * // So below line has be possible throw an errors. use carefully
  * runner.run().then(function() {console.log('done!');});
  */
 export function anim({

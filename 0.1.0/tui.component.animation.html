@@ -564,13 +564,13 @@ var runner = tui.component.animation.anim({
   easing: 'easeInOut',
   // manipulate x, y position
   frame: function(x, y) {
-    dom.css(box, {
+    $box.css({
       left: x + 'px',
       top: y + 'px'
     });
   },
   complete: function() {
-    dom.css(box, {
+    $box.css({
       backgroundColor: 'red'
     });
   }
@@ -579,8 +579,8 @@ var runner = tui.component.animation.anim({
 // Run animation
 runner.run();
 
-// If browser support Promise `run()` return it, otherwise return `null`
-// So below line is throw an errors. use carefully
+// If browser support Promise then method `run()` is return it, otherwise it return `null`
+// So below line has be possible throw an errors. use carefully
 runner.run().then(function() {console.log('done!');});</code></pre>
 
     
