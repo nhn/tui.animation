@@ -67,7 +67,7 @@ tui.component.animation.cancelAnimFrame(timerId);
 * tui-code-snippet ^1.2.2
 
 ## Documentation
-* **API** : https://nhnent.github.io/tui.component.animation/latest
+* **API** : https://nhnent.github.io/tui.component.animation/latest/
 * **Examples** - https://nhnent.github.io/tui.component.animation/latest/tutorial-example1.html
 
 ## Test environment
