@@ -7,6 +7,7 @@ const {abs, pow} = Math;
 
 /**
  * @module ./easing
+ * @ignore
  * @description
  * Easing fomulars are based on Gaëtan Renaudeau and Johan Lindell's gist
  * https://gist.github.com/gre/1650294

@@ -5,6 +5,7 @@
 
 /**
  * @module ./anim
+ * @ignore
  * @description Core module for animation
  */
 
