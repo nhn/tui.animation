@@ -1,12 +1,12 @@
 Animation
 ===============
-Calculate delta value(s) for create animation easily.
+Calculate delta value(s) for creating animation easily.
 
 ## Feature
 
 * Increase, Decrease the specific value base on options.
 * Support shim of `requestAnimationFrame`, `cancelAnimationFrame`.
-* (Optional) Support `Promise` for handle end of animation.
+* (Optional) Support `Promise` for handling end of animation.
 * Support following timing-functions.
 	* linear
 	* easeInQuad (alias: easeIn)
@@ -92,4 +92,4 @@ tui.component.animation.cancelAnimFrame(timerId);
 
 ## Sponsor
 * <img src="https://cloud.githubusercontent.com/assets/12269563/12287774/8cf4d2c0-ba12-11e5-9fa8-0a9c452cca05.png" height="30"><br>
- [BrowserStack](https://www.browserstack.com/) is a cloud based cross browser testing tool
+ [BrowserStack](https://www.browserstack.com/) is a cloud based on cross browser testing tool
