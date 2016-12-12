@@ -7,13 +7,16 @@
 <body>
 <div class="code-html">
 <style type="text/css">
+    .html,body {color: #494949}
     .context {width: 260px;}
     .inlineblock {display:inline-block;vertical-align:middle}
-    .move-box-container {width:198px;height:18px;border:1px solid #ccc;position:relative}
-    .move-box {width:1px;height:18px;background-color:red;position:absolute}
+    .move-box-container {width:500px;height:18px;border:1px solid #9d9d9d;position:relative;border-radius:5px;overflow:hidden}
+    .move-box {width:18px;height:18px;background-color:#fa3282;position:absolute}
     .move-btn-container {width:50px}
     .move-btn {height:20px}
 </style>
+<div><button id="run-all" type="button">run all</button></div>
+
 <!-- easeInOutQuad -->
 <div id="easeInOut" class="context">
     <h3>easeInOut</h3>
@@ -62,19 +65,31 @@
 <script src="https://cdn.rawgit.com/nhnent/tui.code-snippet/1.2.2/code-snippet.min.js"></script>
 <script src="../dist/tui-component-animation.js"></script>
 <script class="code-js">
-$('div.context').each(function(_, container) {
+function run(container) {
     container = $(container);
 
     var easing = container.attr('id');
     var box = container.find('.move-box');
 
-    container.find('.move-btn').on('click', function() {
-        tui.component.animation.anim({
-            easing: easing,
-            frame: function(left) {
-                box.css({left: left + '%'});
-            }
-        }).run();
+    tui.component.animation.anim({
+        easing: easing,
+        from: 0,
+        to: 482,
+        duration: 2000,
+        frame: function(left) {
+            box.css({left: left + 'px'});
+        }
+    }).run();
+}
+
+$('button.move-btn').on('click', function(ev) {
+    var container = $(ev.target).closest('div.context');
+    run(container);
+});
+
+$('button#run-all').on('click', function() {
+    $('div.context').each(function(index, element) {
+        run(element);
     });
 });
 </script>

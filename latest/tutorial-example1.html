@@ -67,31 +67,46 @@
         
         <iframe id="example-result" width="100%" height="800" frameborder="0" src=tutorials/example1.html></iframe>
         <div id="example-js" class="hidden"><pre class="prettyprint source">
-$('div.context').each(function(_, container) {
+function run(container) {
     container = $(container);
 
     var easing = container.attr('id');
     var box = container.find('.move-box');
 
-    container.find('.move-btn').on('click', function() {
-        tui.component.animation.anim({
-            easing: easing,
-            frame: function(left) {
-                box.css({left: left + '%'});
-            }
-        }).run();
+    tui.component.animation.anim({
+        easing: easing,
+        from: 0,
+        to: 482,
+        duration: 2000,
+        frame: function(left) {
+            box.css({left: left + 'px'});
+        }
+    }).run();
+}
+
+$('button.move-btn').on('click', function(ev) {
+    var container = $(ev.target).closest('div.context');
+    run(container);
+});
+
+$('button#run-all').on('click', function() {
+    $('div.context').each(function(index, element) {
+        run(element);
     });
 });
 </pre></div>
         <div id="example-html" class="hidden"><pre class="prettyprint source">
 &lt;style type="text/css">
+    .html,body {color: #494949}
     .context {width: 260px;}
     .inlineblock {display:inline-block;vertical-align:middle}
-    .move-box-container {width:198px;height:18px;border:1px solid #ccc;position:relative}
-    .move-box {width:1px;height:18px;background-color:red;position:absolute}
+    .move-box-container {width:500px;height:18px;border:1px solid #9d9d9d;position:relative;border-radius:5px;overflow:hidden}
+    .move-box {width:18px;height:18px;background-color:#fa3282;position:absolute}
     .move-btn-container {width:50px}
     .move-btn {height:20px}
 &lt;/style>
+&lt;div>&lt;button id="run-all" type="button">run all&lt;/button>&lt;/div>
+
 &lt;!-- easeInOutQuad -->
 &lt;div id="easeInOut" class="context">
     &lt;h3>easeInOut&lt;/h3>
