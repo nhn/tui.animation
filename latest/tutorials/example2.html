@@ -7,21 +7,25 @@
 <body>
 <div class="code-html">
 <style type="text/css">
-    .container {width:500px;height:500px;position:relative;border:1px solid #ccc;overflow:hidden}
-    .box {width:20px;height:20px;background-color:red;position:absolute;top:240px;left:240px}
+    .container {width:500px;height:500px;position:relative;border:1px solid #9d9d9d;overflow:hidden}
+    .box {width:20px;height:20px;background-color:#fa3282;position:absolute;top:240px;left:240px;border-radius:50%}
 </style>
+<div>Click inside the box</div>
+
 <div class="container">
     <div class="box"></div>
 </div>
+
 <div>
+    Move the circle with
     <select id="easing">
         <option value="easeInOutQuad">easeInOutQuad</option>
         <option value="easeInOutCubic">easeInOutCubic</option>
         <option value="easeInOutQuart">easeInOutQuart</option>
         <option value="easeInOutQuint">easeInOutQuint</option>
     </select>
+    effect.
 </div>
-<div>Click inside the box</div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/nhnent/tui.code-snippet/1.2.2/code-snippet.min.js"></script>

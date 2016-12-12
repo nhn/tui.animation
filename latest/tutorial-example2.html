@@ -108,21 +108,25 @@ container.on('mousedown', function(e) {
 </pre></div>
         <div id="example-html" class="hidden"><pre class="prettyprint source">
 &lt;style type="text/css">
-    .container {width:500px;height:500px;position:relative;border:1px solid #ccc;overflow:hidden}
-    .box {width:20px;height:20px;background-color:red;position:absolute;top:240px;left:240px}
+    .container {width:500px;height:500px;position:relative;border:1px solid #9d9d9d;overflow:hidden}
+    .box {width:20px;height:20px;background-color:#fa3282;position:absolute;top:240px;left:240px;border-radius:50%}
 &lt;/style>
+&lt;div>Click inside the box&lt;/div>
+
 &lt;div class="container">
     &lt;div class="box">&lt;/div>
 &lt;/div>
+
 &lt;div>
+    Move the circle with
     &lt;select id="easing">
         &lt;option value="easeInOutQuad">easeInOutQuad&lt;/option>
         &lt;option value="easeInOutCubic">easeInOutCubic&lt;/option>
         &lt;option value="easeInOutQuart">easeInOutQuart&lt;/option>
         &lt;option value="easeInOutQuint">easeInOutQuint&lt;/option>
     &lt;/select>
+    effect.
 &lt;/div>
-&lt;div>Click inside the box&lt;/div>
 </pre></div>
     </article>
 </section>
