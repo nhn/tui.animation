@@ -10,7 +10,7 @@
     "bundle": "webpack && uglifyjs dist/tui-component-animation.js --support-ie8 -c -m -o dist/tui-component-animation.min.js",
     "dev": "webpack-dev-server --devtool=#source-map",
     "dev:test": "karma start --no-single-run --auto-watch",
-    "doc": "jsdoc -c jsdoc.json && mkdir -p doc/dist && cp -f dist/tui-component-animation.js doc/dist"
+    "doc": "jsdoc -c jsdoc.json && mkdir -p doc/dist && cp -f dist/tui-component-animation.*.js doc/dist"
   },
   "keywords": [
     "web",
