@@ -1,20 +1,5 @@
-/*!
- * tui-animation.js
- * @version 0.2.0
- * @author NHNEnt FE Development Lab <dl_javascript@nhnent.com>
- * @license MIT
- */
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("tui-code-snippet"));
-	else if(typeof define === 'function' && define.amd)
-		define(["tui-code-snippet"], factory);
-	else if(typeof exports === 'object')
-		exports["animation"] = factory(require("tui-code-snippet"));
-	else
-		root["tui"] = root["tui"] || {}, root["tui"]["animation"] = factory((root["tui"] && root["tui"]["util"]));
-})(this, function(__WEBPACK_EXTERNAL_MODULE_3__) {
-return /******/ (function(modules) { // webpackBootstrap
+/*! TOAST UI Animation Library 0.1.0 */
+/******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 
@@ -50,7 +35,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "dist";
+/******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -58,24 +43,37 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _anim = __webpack_require__(1);
+	var _codeSnippet = __webpack_require__(1);
+
+	var _codeSnippet2 = _interopRequireDefault(_codeSnippet);
+
+	var _anim = __webpack_require__(2);
 
 	var animation = _interopRequireWildcard(_anim);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
-	module.exports = animation; /**
-	                             * @namespace tui.component.animation
-	                             * @description Animation library
-	                             */
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-/***/ }),
+	/**
+	 * @namespace tui.component.animation
+	 * @description Animation library
+	 */
+	_codeSnippet2['default'].defineNamespace('tui.component.animation', animation);
+
+/***/ },
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
+
+	module.exports = tui.util;
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -84,18 +82,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.cancelAnimFrame = cancelAnimFrame;
 	exports.anim = anim;
 
-	var _easing = __webpack_require__(2);
+	var _codeSnippet = __webpack_require__(1);
+
+	var _codeSnippet2 = _interopRequireDefault(_codeSnippet);
+
+	var _easing = __webpack_require__(3);
 
 	var easingFunctions = _interopRequireWildcard(_easing);
 
-	var _tuiCodeSnippet = __webpack_require__(3);
-
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } } /**
-	                                                                                                                                                                                                     * @fileoverview Module for animations
-	                                                                                                                                                                                                     * @author NHN Ent. FE Development team <dl_javascript@nhnent.com>
-	                                                                                                                                                                                                     */
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	/**
+	 * @fileoverview Module for animations
+	 * @author NHN Ent. FE Development team <dl_javascript@nhnent.com>
+	 */
 
 	/**
 	 * @module ./anim
@@ -103,7 +105,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @description Core module for animation
 	 */
 
-	var isSupportPromise = typeof Promise !== 'undefined' && /\[native code\]/.test(Promise.toString());
+	var isArray = _codeSnippet2['default'].isArray,
+	    map = _codeSnippet2['default'].map;
+
+
+	var isSupportPromise = typeof Promise !== "undefined" && /\[native code\]/.test(Promise.toString());
 
 	/** Do nothing */
 	function noop() {}
@@ -211,14 +217,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _ref$complete = _ref.complete,
 	        complete = _ref$complete === undefined ? noop : _ref$complete;
 
-	    from = (0, _tuiCodeSnippet.isArray)(from) ? from : [from];
-	    to = (0, _tuiCodeSnippet.isArray)(to) ? to : [to];
+	    from = isArray(from) ? from : [from];
+	    to = isArray(to) ? to : [to];
 
 	    var timeoutId = 0;
-	    var diffs = (0, _tuiCodeSnippet.map)(from, function (val, idx) {
+	    var diffs = map(from, function (val, idx) {
 	        return to[idx] - val;
 	    });
-
 	    easing = easingFunctions[easing] || easingFunctions.linear;
 
 	    /**
@@ -231,17 +236,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return function tick() {
 	            var elapsed = new Date() - start;
 	            var progress = Math.min(1, elapsed / duration || 0);
-	            var values = (0, _tuiCodeSnippet.map)(from, function (val, idx) {
+	            var values = map(from, function (val, idx) {
 	                return diffs[idx] * easing(progress) + val;
 	            });
 
-	            frame.apply(undefined, _toConsumableArray(values));
+	            frame.apply(null, values);
 	            timeoutId = requestAnimFrame(tick);
 
 	            if (progress >= 1) {
 	                cancelAnimFrame(timeoutId);
 	                resolve();
 	                complete();
+
+	                return;
 	            }
 	        };
 	    }
@@ -252,7 +259,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            if (!isSupportPromise) {
 	                runner(noop, start)();
-
 	                return null;
 	            }
 
@@ -266,9 +272,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 	}
 
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
 
 	"use strict";
 
@@ -440,13 +446,5 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	var easeInOutQuint = exports.easeInOutQuint = _easeInOut(5);
 
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_3__;
-
-/***/ })
-/******/ ])
-});
-;
+/***/ }
+/******/ ]);
