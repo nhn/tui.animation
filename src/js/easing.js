@@ -21,7 +21,7 @@ const {abs, pow} = Math;
 function _easeIn(p) {
     return function(t) {
         return pow(t, p);
-    }
+    };
 }
 
 /**
@@ -32,7 +32,7 @@ function _easeIn(p) {
 function _easeOut(p) {
     return function(t) {
         return 1 - abs(pow(t - 1, p));
-    }
+    };
 }
 
 /**
@@ -43,7 +43,7 @@ function _easeOut(p) {
 function _easeInOut(p) {
     return function(t) {
         return t < 0.5 ? _easeIn(p)(t * 2) / 2 : (_easeOut(p)((t * 2) - 1) / 2) + 0.5;
-    }
+    };
 }
 
 /**
