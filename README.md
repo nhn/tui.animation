@@ -1,5 +1,5 @@
-Animation
-===============
+# Animation
+
 Calculate delta value(s) for creating animation easily.
 
 ## Feature
@@ -22,53 +22,13 @@ Calculate delta value(s) for creating animation easily.
     * easeOutQuint
     * easeInOutQuint
 
-## Example
-
-### anim()
-
-```js
-var runner = tui.component.animation.anim({
-    from: [0, 100],
-    to: [100, 200],
-    duration: 3000,
-    frame: function(left, top) {
-        $('box').css({
-            left: left + 'px',
-            top: top + 'px'
-        });
-    },
-    complete: function() {
-        console.log('animation done (callback)');
-    }
-});
-
-// Run animation (browser not support Promise)
-runner.run();    // return null
-
-// Run animation (browser support Promise)
-runner.run().then(function() {
-    console.log('animation done (promise)');
-});
-```
-
-### requestAnimFrame(), cancelAnimFrame()
-
-```js
-// requestAnimationFrame
-var timerId = tui.component.animation.requestAnimFrame(function() {
-    $('box').css(left, '100px');
-});
-
-// cancelAnimationFrame
-tui.component.animation.cancelAnimFrame(timerId);
-```
+## Documentation
+* **API** : [https://nhnent.github.io/tui.animation/latest/](https://nhnent.github.io/tui.animation/latest/)
+* **Tutorial** : [https://github.com/nhnent/tui.animation/wiki](https://github.com/nhnent/tui.animation/wiki)
+* **Example** : [https://nhnent.github.io/tui.animation/latest/tutorial-example01-basic-usage.html](https://nhnent.github.io/tui.animation/latest/tutorial-example01-basic-usage.html)
 
 ## Dependency
-* tui-code-snippet ^1.2.2
-
-## Documentation
-* **API** : https://nhnent.github.io/tui.component.animation/latest/
-* **Examples** - https://nhnent.github.io/tui.component.animation/latest/tutorial-example1.html
+* [tui-code-snippet](https://github.com/nhnent/tui.code-snippet) ^1.2.5
 
 ## Test environment
 * PC
@@ -81,15 +41,50 @@ tui.component.animation.cancelAnimFrame(timerId);
 	* iPhone 7(ios 10)
     * iPhone 6s(ios 9.3)
 
-## Download/Install
-* Bower:
-   * latest : `bower install tui-component-animation`
-   * each version : `bower install tui-component-animation[#tag]`
-* Download: https://github.com/nhnent/tui.component.animation
+## Usage
+### Use `npm`
 
-## LICENSE
-[MIT LICENSE](LICENSE).
+Install the latest version using `npm` command:
 
-## Sponsor
-* <img src="https://cloud.githubusercontent.com/assets/12269563/12287774/8cf4d2c0-ba12-11e5-9fa8-0a9c452cca05.png" height="30"><br>
- [BrowserStack](https://www.browserstack.com/) is a cloud based on cross browser testing tool
+```
+$ npm install tui-animation --save
+```
+
+or want to install the each version:
+
+```
+$ npm install tui-animation@<version> --save
+```
+
+To access as module format in your code:
+
+```javascript
+var animation = require('tui-animation');
+var runner = animation.anim(...);
+```
+
+### Use `bower`
+Install the latest version using `bower` command:
+
+```
+$ bower install tui-animation
+```
+
+or want to install the each version:
+
+```
+$ bower install tui-animation#<tag>
+```
+
+To access as namespace format in your code:
+
+```javascript
+var runner = tui.animation.anim(...);
+```
+
+### Download
+* [Download bundle files from `dist` folder](https://github.com/nhnent/tui.animation/tree/production/dist)
+* [Download all sources for each version](https://github.com/nhnent/tui.animation/releases)
+
+## License
+[MIT LICENSE](https://github.com/nhnent/tui.animation/blob/master/LICENSE)

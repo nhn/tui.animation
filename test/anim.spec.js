@@ -1,4 +1,4 @@
-import {anim} from '../src/anim';
+import {anim} from '../src/js/anim';
 
 describe('animation', () => {
     let box;
@@ -50,8 +50,8 @@ describe('animation', () => {
     });
 
     it('should cancel specific animation.', () => {
-        var complete = jasmine.createSpy('complete');
-        var runner = anim({
+        const complete = jasmine.createSpy('complete');
+        const runner = anim({
             duration: 5000,
             complete,
             frame(x) {
@@ -67,7 +67,7 @@ describe('animation', () => {
     });
 
     it('should use default easing function(linear) when easing options is not valid.', done => {
-        expect(function() {
+        expect(() => {
             anim({
                 duration: 0,
                 easing: 'notExist',
