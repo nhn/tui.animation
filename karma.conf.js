@@ -68,8 +68,8 @@ function setConfig(defaultConfig, server) {
             'IE11',
             'Edge',
             'Chrome-WebDriver',
-            'Firefox-WebDriver'
-            // 'Safari-WebDriver' // active only when safari test is needed
+            'Firefox-WebDriver',
+            'Safari-WebDriver'
         ];
         defaultConfig.reporters.push('coverage');
         defaultConfig.reporters.push('junit');

@@ -83,8 +83,8 @@ var runner = tui.animation.anim(...);
 ```
 
 ### Download
-* [Download bundle files from `dist` folder](https://github.com/nhnent/tui.project-name/tree/production/dist)
-* [Download all sources for each version](https://github.com/nhnent/tui.project-name/releases)
+* [Download bundle files from `dist` folder](https://github.com/nhnent/tui.animation/tree/production/dist)
+* [Download all sources for each version](https://github.com/nhnent/tui.animation/releases)
 
 ## License
-[MIT LICENSE](https://github.com/nhnent/tui.project-name/blob/master/LICENSE)
+[MIT LICENSE](https://github.com/nhnent/tui.animation/blob/master/LICENSE)
