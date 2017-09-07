@@ -1,25 +1,24 @@
 {
-  "name": "tui-animation",
+  "name": "tui-component-animation",
+  "description": "javascript animation library with ease",
+  "main": "src/js/index.js",
   "authors": [
-      "NHNent. FE Development Lab <dl_javascript@nhnent.com>"
-    ],
-    "main": [
-      "dist/tui-animation.js"
-    ],
-    "license": "MIT",
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "examples",
-        "src",
-        "test",
-        "jsdoc.conf.json",
-        "karma.conf.js",
-        "webpack.config.js",
-        "package.json"
-    ],
-  "dependencies": {
-    "tui-code-snippet": "^1.2.5"
+    "NHNEnt FE Development Lab <dl_javascript@nhnent.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "web",
+    "animation"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "tui-code-snippet": "^1.2.2"
   }
 }

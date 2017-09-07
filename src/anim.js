@@ -9,10 +9,13 @@
  * @description Core module for animation
  */
 
-import * as easingFunctions from './easing';
-import {isArray, map} from 'tui-code-snippet';
+import util from 'code-snippet';
 
-const isSupportPromise = (typeof Promise !== 'undefined') &&
+import * as easingFunctions from './easing';
+
+const {isArray, map} = util;
+
+const isSupportPromise = (typeof Promise !== "undefined") &&
     (/\[native code\]/.test(Promise.toString()));
 
 /** Do nothing */
@@ -24,7 +27,7 @@ function noop() {}
  * @returns {String} vendor prefixed name
  */
 function getPrefixed(name) {
-    return window[`webkit${name}`] || window[`moz${name}`] || window[`ms${name}`];
+    return window['webkit' + name] || window['moz' + name] || window['ms' + name];
 }
 
 const requestFn = window.requestAnimationFrame ||
@@ -45,14 +48,9 @@ const cancelFn = window.cancelAnimationFrame ||
  *
  * Use `setTimeout` trick on below Internet Explorer 8
  * @method requestAnimFrame
- * @memberof tui.animation
+ * @memberof tui.component.animation
  * @param {Function} callback - callback function
  * @returns {Number} timer id
- * @example
- * var animation = require('tui-animation');
- * var timerId = animation.requestAnimFrame(function() {
- *   $('box').css(left, '100px');
- * });
  */
 export function requestAnimFrame(callback) {
     return requestFn(callback);
@@ -61,14 +59,8 @@ export function requestAnimFrame(callback) {
 /**
  * Shim of cancelAnimationFrame
  * @method cancelAnimFrame
- * @memberof tui.animation
+ * @memberof tui.component.animation
  * @param {Number} timerId - requestAnimationFrame timerId
- * @example
- * var animation = require('tui-animation');
- * var timerId = animation.requestAnimFrame(function() {
- *   $('box').css(left, '100px');
- * });
- * animation.cancelAnimFrame(timerId);
  */
 export function cancelAnimFrame(timerId) {
     if (!timerId) {
@@ -80,7 +72,7 @@ export function cancelAnimFrame(timerId) {
 
 /**
  * Get animation runner
- * @memberof tui.animation
+ * @memberof tui.component.animation
  * @method anim
  * @param {Object} options - options
  * @param {(Number|Number[])} [options.from=0] - beginning values
@@ -91,12 +83,12 @@ export function cancelAnimFrame(timerId) {
  *   the arguments passed with same sequence with `from`, `to` option values
  * @param {Function} [options.complete] - invoked once at end of animation
  * @returns {Object} animation runner
- * @tutorial example01-basic-usage
- * @tutorial example02-2D-movement
- * @tutorial example03-using-promise
- * @example <caption>Initialize and Run animation runner</caption>
- * var animation = require('tui-animation');
- * var runner = tui.animation.anim({
+ * @tutorial example1
+ * @tutorial example2
+ * @tutorial example3
+ * @example
+ * // Initialize animation runner
+ * var runner = tui.component.animation.anim({
  *   from: [1, 5],  // initial x, y position
  *   to: [100, 500],
  *   duration: 2000,
@@ -114,10 +106,10 @@ export function cancelAnimFrame(timerId) {
  *     });
  *   }
  * });
- * 
+ *
  * // Run animation
  * runner.run();
- * 
+ *
  * // If browser support Promise then method `run()` is return it, otherwise it return `null`
  * // So below line has be possible throw an errors. use carefully
  * runner.run().then(function() {console.log('done!');});
@@ -135,7 +127,6 @@ export function anim({
 
     let timeoutId = 0;
     const diffs = map(from, (val, idx) => to[idx] - val);
-
     easing = easingFunctions[easing] || easingFunctions.linear;
 
     /**
@@ -150,13 +141,15 @@ export function anim({
             const progress = Math.min(1, (elapsed / duration) || 0);
             const values = map(from, (val, idx) => (diffs[idx] * easing(progress)) + val);
 
-            frame(...values);
+            frame.apply(null, values);
             timeoutId = requestAnimFrame(tick);
 
             if (progress >= 1) {
                 cancelAnimFrame(timeoutId);
                 resolve();
                 complete();
+
+                return;
             }
         };
     }
@@ -167,7 +160,6 @@ export function anim({
 
             if (!isSupportPromise) {
                 runner(noop, start)();
-
                 return null;
             }
 
