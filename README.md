@@ -33,13 +33,14 @@ Calculate delta value(s) for creating animation easily.
 ## Test environment
 * PC
 	* Internet Explorer 8 ~ 11
+    * Edge
 	* Chrome
 	* Firefox
+    * Safari
 * Mobile
-	* Samsung Galaxy S5(aos 4.4)
-    * Samsung Galaxy Note 3(aos 4.4)
-	* iPhone 7(ios 10)
-    * iPhone 6s(ios 9.3)
+	* Samsung Galaxy S5(aos 6.0)
+    * Samsung Galaxy Note 3(aos 5.0)
+	* iPhone 6(ios 10)
 
 ## Usage
 ### Use `npm`
