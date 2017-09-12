@@ -68,8 +68,8 @@ const config = {
     devServer: {
         historyApiFallback: false,
         progress: true,
-        host: '0.0.0.0'
-        // disableHostCheck: true
+        host: '0.0.0.0',
+        disableHostCheck: true
     }
 };
 

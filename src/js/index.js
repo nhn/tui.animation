@@ -9,4 +9,4 @@
  */
 import * as animation from './anim';
 
-export default animation;
+module.exports = animation;
