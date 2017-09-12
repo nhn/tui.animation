@@ -32,13 +32,13 @@ Calculate delta value(s) for creating animation easily.
 
 ## Test environment
 * PC
-	* IE 8 ~ 11
+    * IE 8 ~ 11
     * Edge
-	* Chrome
-	* Firefox
+    * Chrome
+    * Firefox
     * Safari
 * Mobile
-	* Samsung Galaxy S5(aos 6.0)
+    * Samsung Galaxy S5(aos 6.0)
     * Samsung Galaxy Note 3(aos 5.0)
     * iPhone 6(ios 10)
 
