@@ -1,6 +1,6 @@
 /*!
  * tui-animation.js
- * @version 0.2.0
+ * @version 1.0.0
  * @author NHNEnt FE Development Lab <dl_javascript@nhnent.com>
  * @license MIT
  */
