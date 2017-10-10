@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Animation</title>
+    <title>Namespace: animation | Animation</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -13,14 +13,22 @@
     <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
+
+    
 </head>
 <body>
 <nav class="lnb" id="lnb">
-    <div class="logo" style="width: 150px">
-        <img src="https://cloud.githubusercontent.com/assets/12269563/20029815/01133928-a39a-11e6-80f3-12500a91c755.png" width="100%" height="100%">
+    <div class="logo" style="width: 150px; height: 13px">
+        
+            <a href="https://github.com/nhnent/tui.jsdoc-template" rel="noopener noreferrer" target="_blank">
+                <img src="https://cloud.githubusercontent.com/assets/12269563/20029815/01133928-a39a-11e6-80f3-12500a91c755.png" width="100%" height="100%">
+            </a>
+        
     </div>
     <div class="title">
         <h1><a href="index.html" class="link">Animation</a></h1>
+        
+            <span class="version">v1.0.0</span>
         
     </div>
     <div class="search-container" id="search-container">
@@ -37,7 +45,7 @@
             </li>
         </ol>
     
-    <div class="lnb-examples hidden"><h3>Examples</h3><ul><li><a href="tutorial-example1.html">Basic Usage</a><div class="hidden" id="example1_sub"></div></li><li><a href="tutorial-example2.html">2-Direction Movement</a><div class="hidden" id="example2_sub"></div></li><li><a href="tutorial-example3.html">Using Promise</a><div class="hidden" id="example3_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Namespaces</h3><ul><li><a href="tui.component.animation.html">tui.component.animation</a><div class="hidden" id="tui.component.animation_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="tui.component.animation.html#.anim">anim</a></li><li><a href="tui.component.animation.html#.cancelAnimFrame">cancelAnimFrame</a></li><li><a href="tui.component.animation.html#.requestAnimFrame">requestAnimFrame</a></li></ul></div></li></ul></div>
+    <div class="lnb-examples hidden"><h3>Examples</h3><ul><li><a href="tutorial-example01-basic-usage.html">Example01: Basic Usage</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="example01-basic-usage_sub"></div></li><li><a href="tutorial-example02-2D-movement.html">Example02: 2-Direction Movement</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="example02-2D-movement_sub"></div></li><li><a href="tutorial-example03-using-promise.html">Example03: Using Promise</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="example03-using-promise_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Namespaces</h3><ul><li><a href="tui.animation.html">tui.animation</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="tui.animation_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="tui.animation.html#.anim">anim</a></li><li><a href="tui.animation.html#.cancelAnimFrame">cancelAnimFrame</a></li><li><a href="tui.animation.html#.requestAnimFrame">requestAnimFrame</a></li></ul></div></li></ul></div>
 </nav>
 <div id="resizer"></div>
 
@@ -57,13 +65,14 @@
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description"><p>Animation library</p></div>
-        
+            
+                <div class="description"><p>Animation library</p></div>
+            
 
-        
+            
 
 
 <dl class="details">
@@ -100,17 +109,30 @@
 </dl>
 
 
+            
+                <h3>Example</h3>
+                
+        <p class="code-caption">Get Module</p>
+    
+    <pre class="prettyprint"><code>var animation = require('tui-animation'); // commonjs type
+var animation = tui.animation; // when using bundle file
+var runner = animation.anim({...});
+});</code></pre>
+
+            
         
-    
-    </div>
-
+        </div>
     
 
     
 
     
 
-     
+    
+
+    
+
+    
 
     
 
@@ -123,23 +145,21 @@
                 
 
 <dt>
-
     
-        
-
         <h4 class="name" id=".anim">
-            <span class="type-signature"><span class="icon green">static</span> </span>anim<span class="signature">(options)</span><span class="type-signature"> &rarr; {Object}</span>
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>anim<span class="signature">(options)</span><span class="type-signature"> &rarr; {Object}</span>
+                
             
             <div class="container-source members">
                 <code><a href="anim.js.html">anim.js</a></code>,
-                <code><a href="anim.js.html#line73">line 73</a></code>
+                <code><a href="anim.js.html#line81">line 81</a></code>
             </div>
             
         </h4>
 
         
     
-
 </dt>
 <dd>
 
@@ -418,7 +438,8 @@
                 </td>
             
 
-            <td class="description last"><p>invoking each frames. you can manipulate specific element by this function<br>  the arguments passed with same sequence with <code>from</code>, <code>to</code> option values</p></td>
+            <td class="description last"><p>invoking each frames. you can manipulate specific element by this function
+  the arguments passed with same sequence with <code>from</code>, <code>to</code> option values</p></td>
         </tr>
 
     
@@ -538,11 +559,11 @@
     <dt class="tag-tutorial">Tutorials:</dt>
     <dd class="tag-tutorial">
         <ul>
-            <li><a href="tutorial-example1.html">Basic Usage</a></li>
+            <li><a href="tutorial-example01-basic-usage.html">Example01: Basic Usage</a></li>
         
-            <li><a href="tutorial-example2.html">2-Direction Movement</a></li>
+            <li><a href="tutorial-example02-2D-movement.html">Example02: 2-Direction Movement</a></li>
         
-            <li><a href="tutorial-example3.html">Using Promise</a></li>
+            <li><a href="tutorial-example03-using-promise.html">Example03: Using Promise</a></li>
         </ul>
     </dd>
     
@@ -556,8 +577,10 @@
     
         <h5>Example</h5>
         
-    <pre class="prettyprint"><code>// Initialize animation runner
-var runner = tui.component.animation.anim({
+        <p class="code-caption">Initialize and Run animation runner</p>
+    
+    <pre class="prettyprint"><code>var animation = require('tui-animation');
+var runner = tui.animation.anim({
   from: [1, 5],  // initial x, y position
   to: [100, 500],
   duration: 2000,
@@ -591,23 +614,21 @@ runner.run().then(function() {console.log('done!');});</code></pre>
                 
 
 <dt>
-
     
-        
-
         <h4 class="name" id=".cancelAnimFrame">
-            <span class="type-signature"><span class="icon green">static</span> </span>cancelAnimFrame<span class="signature">(timerId)</span><span class="type-signature"></span>
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>cancelAnimFrame<span class="signature">(timerId)</span><span class="type-signature"></span>
+                
             
             <div class="container-source members">
                 <code><a href="anim.js.html">anim.js</a></code>,
-                <code><a href="anim.js.html#line59">line 59</a></code>
+                <code><a href="anim.js.html#line61">line 61</a></code>
             </div>
             
         </h4>
 
         
     
-
 </dt>
 <dd>
 
@@ -725,6 +746,15 @@ runner.run().then(function() {console.log('done!');});</code></pre>
 
 
     
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>var animation = require('tui-animation');
+var timerId = animation.requestAnimFrame(function() {
+  $('box').css(left, '100px');
+});
+animation.cancelAnimFrame(timerId);</code></pre>
+
+    
 
 </dd>
 
@@ -732,23 +762,21 @@ runner.run().then(function() {console.log('done!');});</code></pre>
                 
 
 <dt>
-
     
-        
-
         <h4 class="name" id=".requestAnimFrame">
-            <span class="type-signature"><span class="icon green">static</span> </span>requestAnimFrame<span class="signature">(callback)</span><span class="type-signature"> &rarr; {Number}</span>
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>requestAnimFrame<span class="signature">(callback)</span><span class="type-signature"> &rarr; {Number}</span>
+                
             
             <div class="container-source members">
                 <code><a href="anim.js.html">anim.js</a></code>,
-                <code><a href="anim.js.html#line46">line 46</a></code>
+                <code><a href="anim.js.html#line43">line 43</a></code>
             </div>
             
         </h4>
 
         
     
-
 </dt>
 <dd>
 
@@ -888,6 +916,14 @@ runner.run().then(function() {console.log('done!');});</code></pre>
 
 
     
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>var animation = require('tui-animation');
+var timerId = animation.requestAnimFrame(function() {
+  $('box').css(left, '100px');
+});</code></pre>
+
+    
 
 </dd>
 
@@ -907,7 +943,7 @@ runner.run().then(function() {console.log('done!');});</code></pre>
 </div>
 
 <footer>
-    <img class="logo" src="https://cloud.githubusercontent.com/assets/12269563/20029815/01133928-a39a-11e6-80f3-12500a91c755.png" style="width: 150px">
+    <img class="logo" src="https://cloud.githubusercontent.com/assets/12269563/20029815/01133928-a39a-11e6-80f3-12500a91c755.png" style="width: 150px; height: 13px">
     <div class="footer-text">NHN Entertainment. Frontend Development Lab</div>
 </footer>
 <script>prettyPrint();</script>
@@ -916,10 +952,12 @@ runner.run().then(function() {console.log('done!');});</code></pre>
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'tui.component.animation_sub'.replace(/"/g, '_');
-        var element = document.getElementById(id); // do not use jquery selector
+        var id = 'tui.animation_sub'.replace(/"/g, '_');
+        var selectedApi = document.getElementById(id); // do not use jquery selector
+        var $selectedApi = $(selectedApi);
 
-        $(element).removeClass('hidden');
+        $selectedApi.removeClass('hidden');
+        $selectedApi.parent().find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
         showLnbApi();
     </script>
 
