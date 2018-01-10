@@ -1,5 +1,11 @@
 {
-    "example01-basic-usage": {"title": "Example01: Basic Usage"},
-    "example02-2D-movement": {"title": "Example02: 2-Direction Movement"},
-    "example03-using-promise": {"title": "Example03: Using Promise"}
+    "example01-basic-usage": {
+      "title": "1. Basic"
+    },
+    "example02-2D-movement": {
+      "title": "2. 2-Direction Movement"
+    },
+    "example03-using-promise": {
+      "title": "3. Using Promise"
+    }
 }
