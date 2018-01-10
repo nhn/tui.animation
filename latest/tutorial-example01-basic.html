@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Tutorial: 3. Using Promise | Animation</title>
+    <title>Tutorial: 1. Basic | Animation</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -56,7 +56,7 @@
     <header>
         
 
-        <h2>3. Using Promise</h2>
+        <h2>1. Basic</h2>
     </header>
 
     
@@ -75,33 +75,35 @@
         </ul>
         <article>
             
-            <iframe id="example-result" width="100%" height="800" frameborder="0" src=tutorials/example03-using-promise.html></iframe>
+            <iframe id="example-result" width="100%" height="800" frameborder="0" src=tutorials/example01-basic.html></iframe>
             <div id="example-js" class="hidden"><pre class="prettyprint source">
-const isSupportPromise = (typeof Promise !== "undefined") &amp;&amp; (/\[native code\]/.test(Promise.toString()));
+function run(container) {
+    container = $(container);
 
-if (!isSupportPromise) {
-    $('#easeInOut').html('&lt;h2 style="color:red">Browser not support `Promise`.&lt;/h2>');
-} else {
-    $('div.context').each(function(_, container) {
-        container = $(container);
+    var easing = container.attr('id');
+    var box = container.find('.move-box');
 
-        var easing = container.attr('id');
-        var box = container.find('.move-box');
-
-        container.find('.move-btn').on('click', function() {
-            tui.animation.anim({
-                easing: easing,
-                from: 0,
-                to: 482,
-                frame: function(left) {
-                    box.css({left: left + 'px'});
-                }
-            }).run().then(function() {
-                $('.move-console').html('&lt;span style="color:red">Completed&lt;/span>');
-            });
-        });
-    });
+    tui.animation.anim({
+        easing: easing,
+        from: 0,
+        to: 482,
+        duration: 2000,
+        frame: function(left) {
+            box.css({left: left + 'px'});
+        }
+    }).run();
 }
+
+$('button.move-btn').on('click', function(ev) {
+    var container = $(ev.target).closest('div.context');
+    run(container);
+});
+
+$('button#run-all').on('click', function() {
+    $('div.context').each(function(index, element) {
+        run(element);
+    });
+});
 </pre></div>
             <div id="example-html" class="hidden"><pre class="prettyprint source">
 &lt;style type="text/css">
@@ -113,12 +115,11 @@ if (!isSupportPromise) {
     .move-btn-container {width:50px}
     .move-btn {height:20px}
 &lt;/style>
-&lt;p>
-    You can use `Promise` to handling end of animation.
+&lt;div>&lt;button id="run-all" type="button">run all&lt;/button>&lt;/div>
 
-    This `Promise` feature is tested on native and &lt;a href="https://github.com/zloirock/core-js">core-js&lt;/a>
-&lt;/p>
+&lt;!-- easeInOutQuad -->
 &lt;div id="easeInOut" class="context">
+    &lt;h3>easeInOut&lt;/h3>
     &lt;div class="move-box-container inlineblock">
         &lt;div class="move-box">&lt;/div>
     &lt;/div>
@@ -126,7 +127,39 @@ if (!isSupportPromise) {
         &lt;button class="move-btn" type="button">run&lt;/button>
     &lt;/div>
 &lt;/div>
-&lt;div class="move-console">&lt;/div>
+
+&lt;!-- easeInOutCubic -->
+&lt;div id="easeInOutCubic" class="context">
+    &lt;h3>easeInOutCubic&lt;/h3>
+    &lt;div class="move-box-container inlineblock">
+        &lt;div class="move-box">&lt;/div>
+    &lt;/div>
+    &lt;div class="move-btn-container inlineblock">
+        &lt;button class="move-btn" type="button">run&lt;/button>
+    &lt;/div>
+&lt;/div>
+
+&lt;!-- easeInOutQuart -->
+&lt;div id="easeInOutQuart" class="context">
+    &lt;h3>easeInOutQuart&lt;/h3>
+    &lt;div class="move-box-container inlineblock">
+        &lt;div class="move-box">&lt;/div>
+    &lt;/div>
+    &lt;div class="move-btn-container inlineblock">
+        &lt;button class="move-btn" type="button">run&lt;/button>
+    &lt;/div>
+&lt;/div>
+
+&lt;!-- easeInOutQuint -->
+&lt;div id="easeInOutQuint" class="context">
+    &lt;h3>easeInOutQuint&lt;/h3>
+    &lt;div class="move-box-container inlineblock">
+        &lt;div class="move-box">&lt;/div>
+    &lt;/div>
+    &lt;div class="move-btn-container inlineblock">
+        &lt;button class="move-btn" type="button">run&lt;/button>
+    &lt;/div>
+&lt;/div>
 </pre></div>
         </article>
     
