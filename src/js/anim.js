@@ -114,10 +114,10 @@ export function cancelAnimFrame(timerId) {
  *     });
  *   }
  * });
- * 
+ *
  * // Run animation
  * runner.run();
- * 
+ *
  * // If browser support Promise then method `run()` is return it, otherwise it return `null`
  * // So below line has be possible throw an errors. use carefully
  * runner.run().then(function() {console.log('done!');});

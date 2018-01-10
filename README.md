@@ -1,9 +1,7 @@
 # Animation
-
 Calculate delta value(s) for creating animation easily.
 
 ## Feature
-
 * Increase, Decrease the specific value base on options.
 * Support shim of `requestAnimationFrame`, `cancelAnimationFrame`.
 * (Optional) Support `Promise` for handling end of animation.
@@ -25,14 +23,14 @@ Calculate delta value(s) for creating animation easily.
 ## Documentation
 * **API** : [https://nhnent.github.io/tui.animation/latest/](https://nhnent.github.io/tui.animation/latest/)
 * **Tutorial** : [https://github.com/nhnent/tui.animation/wiki](https://github.com/nhnent/tui.animation/wiki)
-* **Example** : [https://nhnent.github.io/tui.animation/latest/tutorial-example01-basic-usage.html](https://nhnent.github.io/tui.animation/latest/tutorial-example01-basic-usage.html)
+* **Example** : [https://nhnent.github.io/tui.animation/latest/tutorial-example01-basic.html](https://nhnent.github.io/tui.animation/latest/tutorial-example01-basic.html)
 
 ## Dependency
-* [tui-code-snippet](https://github.com/nhnent/tui.code-snippet) ^1.2.5
+* [tui-code-snippet](https://github.com/nhnent/tui.code-snippet) >=1.2.5
 
 ## Test environment
 * PC
-    * IE 8 ~ 11
+    * IE8~11
     * Edge
     * Chrome
     * Firefox
