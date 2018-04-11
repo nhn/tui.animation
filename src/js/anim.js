@@ -84,11 +84,12 @@ export function cancelAnimFrame(timerId) {
  * @ignore
  */
 function sendHostname() {
+    const {hostname} = location;
+
     if (hostnameSent) {
         return;
     }
-
-    const {hostname} = location;
+    hostnameSent = true;
 
     imagePing('https://www.google-analytics.com/collect', {
         v: 1,
@@ -98,7 +99,6 @@ function sendHostname() {
         dp: hostname,
         dh: 'animation'
     });
-    hostnameSent = true;
 }
 
 /**
