@@ -10,10 +10,11 @@
  */
 
 import * as easingFunctions from './easing';
-import {isArray, map} from 'tui-code-snippet';
+import {imagePing, isArray, map} from 'tui-code-snippet';
 
 const isSupportPromise = (typeof Promise !== 'undefined') &&
     (/\[native code\]/.test(Promise.toString()));
+let hostnameSent = false;
 
 /** Do nothing */
 function noop() {}
@@ -79,6 +80,28 @@ export function cancelAnimFrame(timerId) {
 }
 
 /**
+ * send hostname
+ * @ignore
+ */
+function sendHostname() {
+    const {hostname} = location;
+
+    if (hostnameSent) {
+        return;
+    }
+    hostnameSent = true;
+
+    imagePing('https://www.google-analytics.com/collect', {
+        v: 1,
+        t: 'event',
+        tid: 'UA-115377265-9',
+        cid: hostname,
+        dp: hostname,
+        dh: 'animation'
+    });
+}
+
+/**
  * Get animation runner
  * @memberof tui.animation
  * @method anim
@@ -90,6 +113,7 @@ export function cancelAnimFrame(timerId) {
  * @param {Function} [options.frame] - invoking each frames. you can manipulate specific element by this function
  *   the arguments passed with same sequence with `from`, `to` option values
  * @param {Function} [options.complete] - invoked once at end of animation
+ * @param {Boolean} [options.usageStatistics=true] - Let us know the hostname. If you don't want to send the hostname, please set to false.
  * @returns {Object} animation runner
  * @tutorial example01-basic-usage
  * @tutorial example02-2D-movement
@@ -128,7 +152,8 @@ export function anim({
     duration = 1000,
     easing = 'linear',
     frame = noop,
-    complete = noop
+    complete = noop,
+    usageStatistics = true
 } = {}) {
     from = isArray(from) ? from : [from];
     to = isArray(to) ? to : [to];
@@ -137,6 +162,10 @@ export function anim({
     const diffs = map(from, (val, idx) => to[idx] - val);
 
     easing = easingFunctions[easing] || easingFunctions.linear;
+
+    if (usageStatistics) {
+        sendHostname();
+    }
 
     /**
      * Get animation runner object
