@@ -104,7 +104,7 @@ tui-animation/
 ├─ latest/
 │  ├─ tui-animation.js
 │  └─ tui-animation.min.js
-├─ v3.3.0/
+├─ v1.1.0/
 │  ├─ ...
 ```
 
