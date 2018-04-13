@@ -1,4 +1,5 @@
 import {anim} from '../src/js/anim';
+import snippet from 'tui-code-snippet';
 
 describe('animation', () => {
     let box;
@@ -74,5 +75,25 @@ describe('animation', () => {
                 complete: done
             }).run();
         }).not.toThrow();
+    });
+
+    // hostnameSent module scope variable can not be reset.
+    // maintain cases with xit as it always fail, if you want to test these cases, change xit to fit one by one
+    describe('usageStatistics', () => {
+        beforeEach(() => {
+            spyOn(snippet, 'imagePing');
+        });
+
+        xit('should send hostname by default', done => {
+            anim({duration: 0, complete: done}).run();
+
+            expect(snippet.imagePing).toHaveBeenCalled();
+        });
+
+        xit('should not send hostname on usageStatistics option false', done => {
+            anim({duration: 0, complete: done, usageStatistics: false}).run();
+
+            expect(snippet.imagePing).not.toHaveBeenCalled();
+        });
     });
 });
