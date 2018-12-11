@@ -82,13 +82,13 @@ describe('animation', () => {
             spyOn(snippet, 'sendHostname');
         });
 
-        it('should send hostname by default', done => {
+        it('should sendHostname by default', done => {
             anim({duration: 0, complete: done}).run();
 
             expect(snippet.sendHostname).toHaveBeenCalled();
         });
 
-        it('should not send hostname on usageStatistics option false', done => {
+        it('should not sendHostname on usageStatistics option false', done => {
             anim({duration: 0, complete: done, usageStatistics: false}).run();
 
             expect(snippet.sendHostname).not.toHaveBeenCalled();
