@@ -10,11 +10,10 @@
  */
 
 import * as easingFunctions from './easing';
-import {imagePing, isArray, map} from 'tui-code-snippet';
+import {isArray, map, sendHostname} from 'tui-code-snippet';
 
 const isSupportPromise = (typeof Promise !== 'undefined') &&
     (/\[native code\]/.test(Promise.toString()));
-let hostnameSent = false;
 
 /** Do nothing */
 function noop() {}
@@ -80,28 +79,6 @@ export function cancelAnimFrame(timerId) {
 }
 
 /**
- * send hostname
- * @ignore
- */
-function sendHostname() {
-    const {hostname} = location;
-
-    if (hostnameSent) {
-        return;
-    }
-    hostnameSent = true;
-
-    imagePing('https://www.google-analytics.com/collect', {
-        v: 1,
-        t: 'event',
-        tid: 'UA-115377265-9',
-        cid: hostname,
-        dp: hostname,
-        dh: 'animation'
-    });
-}
-
-/**
  * Get animation runner
  * @memberof tui.animation
  * @method anim
@@ -164,7 +141,7 @@ export function anim({
     easing = easingFunctions[easing] || easingFunctions.linear;
 
     if (usageStatistics) {
-        sendHostname();
+        sendHostname('animation', 'UA-129987462-1');
     }
 
     /**
