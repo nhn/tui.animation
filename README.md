@@ -39,7 +39,7 @@ var options = {
     ...
     usageStatistics: false
 }
-var instance = new Animation(options);
+var instance = animation.anim(options);
 ```
 
 Or, include `tui-code-snippet.js` (**v1.5.0** or **later**) and then immediately write the options as follows:
