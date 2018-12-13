@@ -77,23 +77,21 @@ describe('animation', () => {
         }).not.toThrow();
     });
 
-    // hostnameSent module scope variable can not be reset.
-    // maintain cases with xit as it always fail, if you want to test these cases, change xit to fit one by one
     describe('usageStatistics', () => {
         beforeEach(() => {
-            spyOn(snippet, 'imagePing');
+            spyOn(snippet, 'sendHostname');
         });
 
-        xit('should send hostname by default', done => {
+        it('should sendHostname by default', done => {
             anim({duration: 0, complete: done}).run();
 
-            expect(snippet.imagePing).toHaveBeenCalled();
+            expect(snippet.sendHostname).toHaveBeenCalled();
         });
 
-        xit('should not send hostname on usageStatistics option false', done => {
+        it('should not sendHostname on usageStatistics option false', done => {
             anim({duration: 0, complete: done, usageStatistics: false}).run();
 
-            expect(snippet.imagePing).not.toHaveBeenCalled();
+            expect(snippet.sendHostname).not.toHaveBeenCalled();
         });
     });
 });
