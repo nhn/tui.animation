@@ -1,0 +1,36 @@
+{
+  "header": {
+    "logo": {
+      "src": "https://uicdn.toast.com/toastui/img/tui-component-bi-white.png"
+    },
+    "title": {
+      "text": "Animation",
+      "linkUrl": "https://github.com/nhnent/tui.animation"
+    }
+  },
+  "footer": [
+    {
+      "title": "NHN Entertainment",
+      "linkUrl": "https://github.com/nhnent"
+    },
+    {
+      "title": "FE Development Lab",
+      "linkUrl": "https://github.com/nhnent/fe.javascript"
+    }
+  ],
+  "main": {
+    "filePath": "README.md"
+  },
+  "api": {
+    "filePath": "src/js/**"
+  },
+  "examples": {
+    "filePath": "examples",
+    "titles": {
+      "example01-basic": "1. Basic",
+      "example02-2D-movement": "2. 2-Direction Movement",
+      "example03-using-promise": "3. Using Promise"
+    }
+  },
+  "pathPrefix": "tui.animation"
+}
