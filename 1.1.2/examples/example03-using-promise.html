@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>3. Using Promise</title>
+<link rel="stylesheet" type="text/css" href="./css/tui-example-style.css" />
+<style type="text/css">
+    .html,body {color: #494949}
+    .context {width: 260px;}
+    .inlineblock {display:inline-block;vertical-align:middle}
+    .move-box-container {width:500px;height:18px;border:1px solid #9d9d9d;position:relative;border-radius:5px;overflow:hidden}
+    .move-box {width:18px;height:18px;background-color:#fa3282;position:absolute}
+    .move-btn-container {width:50px}
+    .move-btn {height:20px}
+</style>
+</head>
+<body>
+<div class="code-description">
+    You can use <strong>Promise</strong> to handling end of animation.<br>
+    This <strong>Promise</strong> feature is tested on native and <a href="https://github.com/zloirock/core-js">core-js</a>.
+</div>
+<div class="code-html">
+<div id="easeInOut" class="context">
+    <div class="move-box-container inlineblock">
+        <div class="move-box"></div>
+    </div>
+    <div class="move-btn-container inlineblock">
+        <button class="move-btn" type="button">run</button>
+    </div>
+</div>
+<div class="move-console"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://uicdn.toast.com/tui.code-snippet/v1.5.0/tui-code-snippet.min.js"></script>
+<script src="../dist/tui-animation.js"></script>
+<script class="code-js">
+const isSupportPromise = (typeof Promise !== "undefined") && (/\[native code\]/.test(Promise.toString()));
+
+if (!isSupportPromise) {
+    $('#easeInOut').html('<h2 style="color:red">Browser not support `Promise`.</h2>');
+} else {
+    $('div.context').each(function(_, container) {
+        container = $(container);
+
+        var easing = container.attr('id');
+        var box = container.find('.move-box');
+
+        container.find('.move-btn').on('click', function() {
+            tui.animation.anim({
+                easing: easing,
+                from: 0,
+                to: 482,
+                frame: function(left) {
+                    box.css({left: left + 'px'});
+                }
+            }).run().then(function() {
+                $('.move-console').html('<span style="color:red">Completed</span>');
+            });
+        });
+    });
+}
+</script>
+</body>
+</html>
