@@ -1,6 +1,6 @@
 /**
  * @fileoverview Module for animations
- * @author NHN Ent. FE Development team <dl_javascript@nhnent.com>
+ * @author NHN. FE Development Lab <dl_javascript@nhn.com>
  */
 
 /**

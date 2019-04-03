@@ -24,9 +24,10 @@
     "nhnent",
     "tui",
     "ui component",
-    "animation"
+    "animation",
+    "nhn"
   ],
-  "author": "NHNEnt FE Development Lab <dl_javascript@nhnent.com>",
+  "author": "NHN FE Development Lab <dl_javascript@nhn.com>",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.18.2",
