@@ -75,8 +75,8 @@ tui.usageStatistics = false;
 
 
 ## 🐾 Examples
-* [Basic](https://nhnent.github.io/tui.animation/latest/tutorial-example01-basic) : Example of using default options.
-* [Using Promise](https://nhnent.github.io/tui.animation/latest/tutorial-example03-using-promise) : Example of handling the result in a browser supported `Promise`.
+* [Basic](https://nhn.github.io/tui.animation/latest/tutorial-example01-basic) : Example of using default options.
+* [Using Promise](https://nhn.github.io/tui.animation/latest/tutorial-example03-using-promise) : Example of handling the result in a browser supported `Promise`.
 
 More examples can be found on the left sidebar of each example page, and have fun with it.
 
@@ -160,7 +160,7 @@ import {animation} from 'tui-animation'; /* ES6 */
 ```
 
 
-Then you should call the `anim` method with [options](https://nhnent.github.io/tui.animation/latest/tui.animation#anim) to set configuration and call the `run` method to start the animation.
+Then you should call the `anim` method with [options](https://nhn.github.io/tui.animation/latest/tui.animation#anim) to set configuration and call the `run` method to start the animation.
 
 ``` javascript
 var instance = animation.anim({ ... });
@@ -168,7 +168,7 @@ var instance = animation.anim({ ... });
 instance.run();
 ```
 
-For more information about the API, please see [here](https://nhnent.github.io/tui.animation/latest/tui.animation).
+For more information about the API, please see [here](https://nhn.github.io/tui.animation/latest/tui.animation).
 
 
 ## 🔧 Pull Request Steps
@@ -219,7 +219,7 @@ For more information on PR's step, please see links of Contributing section.
 ## 📙 Documents
 * [Getting Started](https://github.com/nhnent/tui.animation/blob/production/docs/getting-started.md)
 * [Tutorials](https://github.com/nhnent/tui.animation/tree/production/docs)
-* [APIs](https://nhnent.github.io/tui.animation/latest)
+* [APIs](https://nhn.github.io/tui.animation/latest)
 
 You can also see the older versions of API page on the [releases page](https://github.com/nhnent/tui.animation/releases).
 
