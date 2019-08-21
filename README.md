@@ -1,11 +1,11 @@
 # TOAST UI Component : Animation
 > Component that controls and applys various easing effects.
 
-[![GitHub release](https://img.shields.io/github/release/nhnent/tui.animation.svg)](https://github.com/nhnent/tui.animation/releases/latest)
+[![GitHub release](https://img.shields.io/github/release/nhn/tui.animation.svg)](https://github.com/nhn/tui.animation/releases/latest)
 [![npm](https://img.shields.io/npm/v/tui-animation.svg)](https://www.npmjs.com/package/tui-animation)
-[![GitHub license](https://img.shields.io/github/license/nhnent/tui.animation.svg)](https://github.com/nhnent/tui.animation/blob/production/LICENSE)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg)](https://github.com/nhnent/tui.project-name/labels/help%20wanted)
-[![code with hearth by NHN](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-NHN-ff1414.svg)](https://github.com/nhnent)
+[![GitHub license](https://img.shields.io/github/license/nhn/tui.animation.svg)](https://github.com/nhn/tui.animation/blob/production/LICENSE)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg)](https://github.com/nhn/tui.project-name/labels/help%20wanted)
+[![code with hearth by NHN](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-NHN-ff1414.svg)](https://github.com/nhn)
 
 
 ## 🚩 Table of Contents
@@ -75,8 +75,8 @@ tui.usageStatistics = false;
 
 
 ## 🐾 Examples
-* [Basic](https://nhnent.github.io/tui.animation/latest/tutorial-example01-basic) : Example of using default options.
-* [Using Promise](https://nhnent.github.io/tui.animation/latest/tutorial-example03-using-promise) : Example of handling the result in a browser supported `Promise`.
+* [Basic](https://nhn.github.io/tui.animation/latest/tutorial-example01-basic) : Example of using default options.
+* [Using Promise](https://nhn.github.io/tui.animation/latest/tutorial-example03-using-promise) : Example of handling the result in a browser supported `Promise`.
 
 More examples can be found on the left sidebar of each example page, and have fun with it.
 
@@ -129,8 +129,8 @@ tui-animation/
 ```
 
 ### Download Source Files
-* [Download bundle files](https://github.com/nhnent/tui.animation/tree/production/dist)
-* [Download all sources for each version](https://github.com/nhnent/tui.animation/releases)
+* [Download bundle files](https://github.com/nhn/tui.animation/tree/production/dist)
+* [Download all sources for each version](https://github.com/nhn/tui.animation/releases)
 
 
 ## 🔨 Usage
@@ -160,7 +160,7 @@ import {animation} from 'tui-animation'; /* ES6 */
 ```
 
 
-Then you should call the `anim` method with [options](https://nhnent.github.io/tui.animation/latest/tui.animation#anim) to set configuration and call the `run` method to start the animation.
+Then you should call the `anim` method with [options](https://nhn.github.io/tui.animation/latest/tui.animation#anim) to set configuration and call the `run` method to start the animation.
 
 ``` javascript
 var instance = animation.anim({ ... });
@@ -168,7 +168,7 @@ var instance = animation.anim({ ... });
 instance.run();
 ```
 
-For more information about the API, please see [here](https://nhnent.github.io/tui.animation/latest/tui.animation).
+For more information about the API, please see [here](https://nhn.github.io/tui.animation/latest/tui.animation).
 
 
 ## 🔧 Pull Request Steps
@@ -217,24 +217,24 @@ For more information on PR's step, please see links of Contributing section.
 
 
 ## 📙 Documents
-* [Getting Started](https://github.com/nhnent/tui.animation/blob/production/docs/getting-started.md)
-* [Tutorials](https://github.com/nhnent/tui.animation/tree/production/docs)
-* [APIs](https://nhnent.github.io/tui.animation/latest)
+* [Getting Started](https://github.com/nhn/tui.animation/blob/production/docs/getting-started.md)
+* [Tutorials](https://github.com/nhn/tui.animation/tree/production/docs)
+* [APIs](https://nhn.github.io/tui.animation/latest)
 
-You can also see the older versions of API page on the [releases page](https://github.com/nhnent/tui.animation/releases).
+You can also see the older versions of API page on the [releases page](https://github.com/nhn/tui.animation/releases).
 
 
 ## 💬 Contributing
-* [Code of Conduct](https://github.com/nhnent/tui.animation/blob/production/CODE_OF_CONDUCT.md)
-* [Contributing guideline](https://github.com/nhnent/tui.animation/blob/production/CONTRIBUTING.md)
-* [Issue guideline](https://github.com/nhnent/tui.animation/blob/production/docs/ISSUE_TEMPLATE.md)
-* [Commit convention](https://github.com/nhnent/tui.animation/blob/production/docs/COMMIT_MESSAGE_CONVENTION.md)
+* [Code of Conduct](https://github.com/nhn/tui.animation/blob/production/CODE_OF_CONDUCT.md)
+* [Contributing guideline](https://github.com/nhn/tui.animation/blob/production/CONTRIBUTING.md)
+* [Issue guideline](https://github.com/nhn/tui.animation/blob/production/docs/ISSUE_TEMPLATE.md)
+* [Commit convention](https://github.com/nhn/tui.animation/blob/production/docs/COMMIT_MESSAGE_CONVENTION.md)
 
 
 ## 🔩 Dependency
-* [tui-code-snippet](https://github.com/nhnent/tui.code-snippet) >=1.5.0
+* [tui-code-snippet](https://github.com/nhn/tui.code-snippet) >=1.5.0
 
 
 ## 📜 License
 
-This software is licensed under the [MIT](https://github.com/nhnent/tui.animation/blob/production/LICENSE) © [NHN](https://github.com/nhnent).
+This software is licensed under the [MIT](https://github.com/nhn/tui.animation/blob/production/LICENSE) © [NHN](https://github.com/nhn).
