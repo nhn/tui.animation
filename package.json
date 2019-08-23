@@ -1,6 +1,6 @@
 {
   "name": "tui-animation",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "TOAST UI Component: Animation",
   "main": "dist/tui-animation.js",
   "files": [
