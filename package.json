@@ -12,7 +12,7 @@
     "bundle": "webpack && webpack -p",
     "serve": "webpack-dev-server --inline --hot -d",
     "serve:ie8": "webpack-dev-server -d",
-    "doc:dev": "tuidoc --dev",
+    "doc:serve": "tuidoc --serv",
     "doc": "tuidoc",
     "note": "tuie --tag=$(git describe --tags)"
   },
