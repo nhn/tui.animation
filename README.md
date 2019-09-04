@@ -1,3 +1,7 @@
+### ‼️ `tui.animation` will no longer receive major updates. It will only get bug fixes in future.
+
+<br>
+
 # TOAST UI Component : Animation
 > Component that controls and applys various easing effects.
 
