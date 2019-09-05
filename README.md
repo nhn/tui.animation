@@ -1,4 +1,4 @@
-### ‼️ `tui.animation` will no longer receive major updates. It will only get bug fixes in future.
+### ‼️ There are no major updates planned for `tui.animation` in the future. It will only get bug fixes.
 
 <br>
 
